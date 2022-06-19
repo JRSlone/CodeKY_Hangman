@@ -34,8 +34,8 @@
         <Button x:Name="EKey" Content="E" HorizontalAlignment="Left" Margin="104,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="EKey_Click"/>
         <Button x:Name="WKey" Content="W" HorizontalAlignment="Left" Margin="59,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="WKey_Click"/>
         <TextBox x:Name="wordDisplayTB" HorizontalAlignment="Left" Margin="109,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="41"/>
-        <ListBox x:Name="usedLettersLB" Margin="14,88,701,140"/>
-        <TextBox x:Name="hangmanImage" HorizontalAlignment="Left" Margin="269,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="160"/>
+        <ListBox x:Name="usedLettersLB" Margin="14,59,701,140"/>
+        <ListBox x:Name="hangmanImageLB" Margin="309,59,371,186" HorizontalContentAlignment="Right"/>
 
     </Grid>
 </Window>

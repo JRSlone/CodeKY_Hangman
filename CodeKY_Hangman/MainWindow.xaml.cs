@@ -35,7 +35,7 @@ namespace CodeKY_Hangman
         List<char> solvedLetters = new List<char>();
         List<String> wordDictionary = new List<string> { "SOPHIE", "PYRUS", "GALLICK", "REMNANT", "LIRU", "STORM", "MORGAN", "ASH", "TASHA" };
 
-        
+        int amountOfTimesWrong = 0;
 
         public MainWindow()
         {
@@ -69,6 +69,7 @@ namespace CodeKY_Hangman
             alphaButtons[25] = ZKey;
 
             setWord();
+            hangmanAppear();
         }
 
         public void setWord()
@@ -88,12 +89,15 @@ namespace CodeKY_Hangman
             }
         }
 
-        public void checkWord()
+        public void checkWord() //need to figure out way to have it to check the whole word and if NONE of the letters match then amount of times wrong i++
         {
+
+            bool correctGuess = false;
             for (int i = 0; i < wordLetters.Count(); i++)
             {
                 if (wordLetters[i] == alphabet[clickedButton])
                 {
+                    correctGuess = true;
                     solvedLetters[i] = wordLetters[i];
                     wordDisplayTB.Clear();
 
@@ -102,6 +106,11 @@ namespace CodeKY_Hangman
                         wordDisplayTB.Text += $"{solvedLetters[j]} ";
                     }
                 }
+            }
+
+            if (correctGuess != true)
+            {
+                amountOfTimesWrong++;
             }
 
         }
@@ -117,6 +126,73 @@ namespace CodeKY_Hangman
                 usedLettersLB.Items.Add(guessedLetters[i]);
             }
             checkWord();
+            hangmanAppear();
+        }
+
+        public void hangmanAppear()
+        {
+            hangmanImageLB.Items.Clear();
+            if (amountOfTimesWrong == 0)
+            {
+                hangmanImageLB.Items.Add("\n+---+");
+                hangmanImageLB.Items.Add("     |");
+                hangmanImageLB.Items.Add("     |");
+                hangmanImageLB.Items.Add("     |");
+                hangmanImageLB.Items.Add("     |");
+                hangmanImageLB.Items.Add("    ===");
+            }
+
+            else if (amountOfTimesWrong == 1)
+            {
+                hangmanImageLB.Items.Add("\n+---+");
+                hangmanImageLB.Items.Add("0    |");
+                hangmanImageLB.Items.Add("     |");
+                hangmanImageLB.Items.Add("     |");
+                hangmanImageLB.Items.Add("     |");
+                hangmanImageLB.Items.Add("    ===");
+            }
+
+            else if (amountOfTimesWrong == 2)
+            {
+                hangmanImageLB.Items.Add("\n+---+");
+                hangmanImageLB.Items.Add(" 0    |");
+                hangmanImageLB.Items.Add("/|    |");
+                hangmanImageLB.Items.Add("      |");
+                hangmanImageLB.Items.Add("      |");
+                hangmanImageLB.Items.Add("     ===");
+            }
+
+            else if (amountOfTimesWrong == 3)
+            {
+                hangmanImageLB.Items.Add("\n+---+");
+                hangmanImageLB.Items.Add(" 0    |");
+                hangmanImageLB.Items.Add("/|\\  |");
+                hangmanImageLB.Items.Add("      |");
+                hangmanImageLB.Items.Add("      |");
+                hangmanImageLB.Items.Add("     ===");
+            }
+
+            else if (amountOfTimesWrong == 4)
+            {
+                hangmanImageLB.Items.Add("\n+---+");
+                hangmanImageLB.Items.Add(" 0    |");
+                hangmanImageLB.Items.Add("/|\\  |");
+                hangmanImageLB.Items.Add("/     |");
+                hangmanImageLB.Items.Add("      |");
+                hangmanImageLB.Items.Add("     ===");
+            }
+
+            else if (amountOfTimesWrong == 5)
+            {
+                hangmanImageLB.Items.Add("\n+---+");
+                hangmanImageLB.Items.Add(" 0    |");
+                hangmanImageLB.Items.Add("/|\\  |");
+                hangmanImageLB.Items.Add("/ \\  |");
+                hangmanImageLB.Items.Add("      |");
+                hangmanImageLB.Items.Add("     ===");
+                hangmanImageLB.Items.Add("YOU LOSE!");
+            }
+
         }
 
         private void AKey_Click(object sender, RoutedEventArgs e)
