@@ -73,17 +73,24 @@ namespace CodeKY_Hangman
             foreach (char letter in wordLetters)
             {
                 int i = 0;
-                if (i < wordLetters.Count() - 1)
+                if (i < wordLetters.Count())
                 {
-                    wordDisplayTB.Text += $"{letter} ";
-                    i++;
+                    //wordDisplayTB.Text += $"{letter} ";
+                    wordDisplayTB.Text += $"_ ";
+                }
+            }
+        }
+
+        public void checkWord()
+        {
+            for (int i = 0; i < wordLetters.Count(); i++)
+            {
+                if (wordLetters[i] == alphabet[clickedButton])
+                {
+                    wordDisplayTB.Text += 
                 }
             }
 
-            //for (int i = 0; i < wordLetters.Count(); i++)
-            //{
-            //    wordDisplayTB.Text += randomWord;
-            //}
         }
 
         public void buttonClick()
