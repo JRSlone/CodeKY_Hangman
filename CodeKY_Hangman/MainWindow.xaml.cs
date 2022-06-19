@@ -26,7 +26,7 @@ namespace CodeKY_Hangman
         List<char> guessedLetters = new List<char>();
         List<char> wordLetters = new List<char>();
         List<char> solvedLetters = new List<char>();
-        List<String> wordDictionary = new List<string> { "sophie", "pyrus", "gallick", "remnant", "liru", "storm", "morgan", "ash", "tasha" };
+        List<String> wordDictionary = new List<string> { "SOPHIE", "PYRUS", "GALLICK", "REMNANT", "LIRU", "STORM", "MORGAN", "ASH", "TASHA" };
 
         
 
@@ -91,6 +91,13 @@ namespace CodeKY_Hangman
                 if (wordLetters[i] == alphabet[clickedButton])
                 {
                     //wordDisplayTB.Text += 
+                    solvedLetters[i] = wordLetters[i];
+                    wordDisplayTB.Clear();
+
+                    for (int j = 0; j < wordLetters.Count(); j++)
+                    {
+                        wordDisplayTB.Text += $"{solvedLetters[j]} ";
+                    }
                 }
             }
 
@@ -106,6 +113,7 @@ namespace CodeKY_Hangman
             {
                 usedLettersLB.Items.Add(guessedLetters[i]);
             }
+            checkWord();
         }
 
         private void AKey_Click(object sender, RoutedEventArgs e)
