@@ -25,7 +25,9 @@ namespace CodeKY_Hangman
         int clickedButton;
         List<char> guessedLetters = new List<char>();
         List<char> wordLetters = new List<char>(); 
-        List<String> wordDictionary = new List<string> { "spooky", "aurora", "legend", "cookie", "duplex", "bedroom", "discord", "voluptuous", "movie" };
+        List<String> wordDictionary = new List<string> { "sophie", "pyrus", "gallick", "remnant", "liru", "storm", "morgan", "ash", "tasha" };
+
+        
 
         public MainWindow()
         {
@@ -57,12 +59,31 @@ namespace CodeKY_Hangman
             alphaButtons[23] = XKey;
             alphaButtons[24] = YKey;
             alphaButtons[25] = ZKey;
+
+            setWord();
         }
 
         public void setWord()
         {
             int rand1 = RandomNumber.rand.Next(0, wordDictionary.Count());
             string randomWord = wordDictionary[rand1];
+
+            wordLetters.AddRange(randomWord);
+
+            foreach (char letter in wordLetters)
+            {
+                int i = 0;
+                if (i < wordLetters.Count() - 1)
+                {
+                    wordDisplayTB.Text += $"{letter} ";
+                    i++;
+                }
+            }
+
+            //for (int i = 0; i < wordLetters.Count(); i++)
+            //{
+            //    wordDisplayTB.Text += randomWord;
+            //}
         }
 
         public void buttonClick()
