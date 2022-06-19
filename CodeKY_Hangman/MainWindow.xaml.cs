@@ -13,6 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+-THINGS TO DO
+-make the wordDictionary a list from a external source
+-add hangman image along with logic to fill in the hangman
+-gameover also add a play again to start the thing over
+*/
+
 namespace CodeKY_Hangman
 {
     /// <summary>
@@ -71,13 +78,10 @@ namespace CodeKY_Hangman
 
             wordLetters.AddRange(randomWord);
 
-            //foreach (char letter in wordLetters)
             for (int i = 0; i < wordLetters.Count(); i++)
             {
-                //int i = 0;
                 if (i < wordLetters.Count())
                 {
-                    //wordDisplayTB.Text += $"{letter} ";
                     solvedLetters.AddRange("_");
                     wordDisplayTB.Text += $"{solvedLetters[i]} ";
                 }
@@ -90,7 +94,6 @@ namespace CodeKY_Hangman
             {
                 if (wordLetters[i] == alphabet[clickedButton])
                 {
-                    //wordDisplayTB.Text += 
                     solvedLetters[i] = wordLetters[i];
                     wordDisplayTB.Clear();
 
