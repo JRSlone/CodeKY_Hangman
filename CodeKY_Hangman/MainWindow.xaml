@@ -1,0 +1,40 @@
+﻿<Window x:Class="CodeKY_Hangman.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeKY_Hangman"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="QKey" Content="Q" HorizontalAlignment="Left" Margin="14,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="QKey_Click"/>
+        <Button x:Name="MKey" Content="M" HorizontalAlignment="Left" Margin="334,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="MKey_Click"/>
+        <Button x:Name="NKey" Content="N" HorizontalAlignment="Left" Margin="289,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="NKey_Click"/>
+        <Button x:Name="BKey" Content="B" HorizontalAlignment="Left" Margin="244,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="BKey_Click"/>
+        <Button x:Name="VKey" Content="V" HorizontalAlignment="Left" Margin="199,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="VKey_Click"/>
+        <Button x:Name="CKey" Content="C" HorizontalAlignment="Left" Margin="154,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="CKey_Click"/>
+        <Button x:Name="XKey" Content="X" HorizontalAlignment="Left" Margin="109,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="XKey_Click"/>
+        <Button x:Name="ZKey" Content="Z" HorizontalAlignment="Left" Margin="64,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="ZKey_Click"/>
+        <Button x:Name="LKey" Content="L" HorizontalAlignment="Left" Margin="399,343,0,52" Width="40" Click="LKey_Click"/>
+        <Button x:Name="KKey" Content="K" HorizontalAlignment="Left" Margin="354,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="KKey_Click"/>
+        <Button x:Name="PKey" Content="P" HorizontalAlignment="Left" Margin="419,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="PKey_Click"/>
+        <Button x:Name="JKey" Content="J" HorizontalAlignment="Left" Margin="309,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="JKey_Click"/>
+        <Button x:Name="HKey" Content="H" HorizontalAlignment="Left" Margin="264,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="HKey_Click"/>
+        <Button x:Name="GKey" Content="G" HorizontalAlignment="Left" Margin="219,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="GKey_Click"/>
+        <Button x:Name="FKey" Content="F" HorizontalAlignment="Left" Margin="174,343,0,0" VerticalAlignment="Top" Height="39" RenderTransformOrigin="0.5,0.5" Width="39.6233333333333" Click="FKey_Click"/>
+        <Button x:Name="DKey" Content="D" HorizontalAlignment="Left" Margin="129,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="DKey_Click"/>
+        <Button x:Name="SKey" Content="S" HorizontalAlignment="Left" Margin="84,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="SKey_Click"/>
+        <Button x:Name="AKey" Content="A" HorizontalAlignment="Left" Margin="39,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="AKey_Click"/>
+        <Button x:Name="OKey" Content="O" HorizontalAlignment="Left" Margin="374,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="OKey_Click"/>
+        <Button x:Name="IKey" Content="I" HorizontalAlignment="Left" Margin="329,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="IKey_Click"/>
+        <Button x:Name="UKey" Content="U" HorizontalAlignment="Left" Margin="284,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="UKey_Click"/>
+        <Button x:Name="YKey" Content="Y" HorizontalAlignment="Left" Margin="239,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="YKey_Click"/>
+        <Button x:Name="TKey" Content="T" HorizontalAlignment="Left" Margin="194,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="TKey_Click"/>
+        <Button x:Name="RKey" Content="R" HorizontalAlignment="Left" Margin="149,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="RKey_Click"/>
+        <Button x:Name="EKey" Content="E" HorizontalAlignment="Left" Margin="104,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="EKey_Click"/>
+        <Button x:Name="WKey" Content="W" HorizontalAlignment="Left" Margin="59,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="WKey_Click"/>
+        <TextBox x:Name="wordDisplayTB" HorizontalAlignment="Left" Margin="109,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="41"/>
+        <ListBox x:Name="usedLettersLB" Margin="14,88,701,140"/>
+
+    </Grid>
+</Window>
