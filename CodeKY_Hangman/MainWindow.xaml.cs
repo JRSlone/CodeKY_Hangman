@@ -24,7 +24,8 @@ namespace CodeKY_Hangman
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         int clickedButton;
         List<char> guessedLetters = new List<char>();
-        List<char> wordLetters = new List<char>(); 
+        List<char> wordLetters = new List<char>();
+        List<char> solvedLetters = new List<char>();
         List<String> wordDictionary = new List<string> { "sophie", "pyrus", "gallick", "remnant", "liru", "storm", "morgan", "ash", "tasha" };
 
         
@@ -70,13 +71,15 @@ namespace CodeKY_Hangman
 
             wordLetters.AddRange(randomWord);
 
-            foreach (char letter in wordLetters)
+            //foreach (char letter in wordLetters)
+            for (int i = 0; i < wordLetters.Count(); i++)
             {
-                int i = 0;
+                //int i = 0;
                 if (i < wordLetters.Count())
                 {
                     //wordDisplayTB.Text += $"{letter} ";
-                    wordDisplayTB.Text += $"_ ";
+                    solvedLetters.AddRange("_");
+                    wordDisplayTB.Text += $"{solvedLetters[i]} ";
                 }
             }
         }
@@ -87,7 +90,7 @@ namespace CodeKY_Hangman
             {
                 if (wordLetters[i] == alphabet[clickedButton])
                 {
-                    wordDisplayTB.Text += 
+                    //wordDisplayTB.Text += 
                 }
             }
 
