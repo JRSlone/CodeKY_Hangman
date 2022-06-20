@@ -16,8 +16,9 @@ using System.Windows.Shapes;
 /*
 -THINGS TO DO
 -make the wordDictionary a list from a external source
--add hangman image along with logic to fill in the hangman
+-add hangman image along with logic to fill in the hangman (done)
 -gameover also add a play again to start the thing over
+-add a you win if you actually guess
 */
 
 namespace CodeKY_Hangman
@@ -89,7 +90,7 @@ namespace CodeKY_Hangman
             }
         }
 
-        public void checkWord() //need to figure out way to have it to check the whole word and if NONE of the letters match then amount of times wrong i++
+        public void checkWord()
         {
 
             bool correctGuess = false;
