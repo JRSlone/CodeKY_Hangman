@@ -37,41 +37,44 @@ namespace CodeKY_Hangman
         List<String> wordDictionary = new List<string> { "SOPHIE", "PYRUS", "GALLICK", "REMNANT", "LIRU", "STORM", "MORGAN", "ASH", "TASHA" };
 
         int amountOfTimesWrong = 0;
+        int amountOfTimesRight = 0; //useless atm
+        bool correctGuess = false;
 
         public MainWindow()
         {
-            InitializeComponent();
+                InitializeComponent();
 
-            alphaButtons[0] = AKey;
-            alphaButtons[1] = BKey;
-            alphaButtons[2] = CKey;
-            alphaButtons[3] = DKey;
-            alphaButtons[4] = EKey;
-            alphaButtons[5] = FKey;
-            alphaButtons[6] = GKey;
-            alphaButtons[7] = HKey;
-            alphaButtons[8] = IKey;
-            alphaButtons[9] = JKey;
-            alphaButtons[10] = KKey;
-            alphaButtons[11] = LKey;
-            alphaButtons[12] = MKey;
-            alphaButtons[13] = NKey;
-            alphaButtons[14] = OKey;
-            alphaButtons[15] = PKey;
-            alphaButtons[16] = QKey;
-            alphaButtons[17] = RKey;
-            alphaButtons[18] = SKey;
-            alphaButtons[19] = TKey;
-            alphaButtons[20] = UKey;
-            alphaButtons[21] = VKey;
-            alphaButtons[22] = WKey;
-            alphaButtons[23] = XKey;
-            alphaButtons[24] = YKey;
-            alphaButtons[25] = ZKey;
+                alphaButtons[0] = AKey;
+                alphaButtons[1] = BKey;
+                alphaButtons[2] = CKey;
+                alphaButtons[3] = DKey;
+                alphaButtons[4] = EKey;
+                alphaButtons[5] = FKey;
+                alphaButtons[6] = GKey;
+                alphaButtons[7] = HKey;
+                alphaButtons[8] = IKey;
+                alphaButtons[9] = JKey;
+                alphaButtons[10] = KKey;
+                alphaButtons[11] = LKey;
+                alphaButtons[12] = MKey;
+                alphaButtons[13] = NKey;
+                alphaButtons[14] = OKey;
+                alphaButtons[15] = PKey;
+                alphaButtons[16] = QKey;
+                alphaButtons[17] = RKey;
+                alphaButtons[18] = SKey;
+                alphaButtons[19] = TKey;
+                alphaButtons[20] = UKey;
+                alphaButtons[21] = VKey;
+                alphaButtons[22] = WKey;
+                alphaButtons[23] = XKey;
+                alphaButtons[24] = YKey;
+                alphaButtons[25] = ZKey;
 
-            setWord();
-            hangmanAppear();
+                setWord();
+                hangmanAppear();
         }
+
 
         public void setWord()
         {
@@ -93,7 +96,7 @@ namespace CodeKY_Hangman
         public void checkWord()
         {
 
-            bool correctGuess = false;
+            
             for (int i = 0; i < wordLetters.Count(); i++)
             {
                 if (wordLetters[i] == alphabet[clickedButton])
@@ -105,6 +108,7 @@ namespace CodeKY_Hangman
                     for (int j = 0; j < wordLetters.Count(); j++)
                     {
                         wordDisplayTB.Text += $"{solvedLetters[j]} ";
+                        amountOfTimesRight++;
                     }
                 }
             }
@@ -128,6 +132,72 @@ namespace CodeKY_Hangman
             }
             checkWord();
             hangmanAppear();
+
+            if (amountOfTimesWrong == 5)
+            {
+                alphaButtons[0].Visibility = Visibility.Hidden;
+                alphaButtons[1].Visibility = Visibility.Hidden;
+                alphaButtons[2].Visibility = Visibility.Hidden;
+                alphaButtons[3].Visibility = Visibility.Hidden;
+                alphaButtons[4].Visibility = Visibility.Hidden;
+                alphaButtons[5].Visibility = Visibility.Hidden;
+                alphaButtons[6].Visibility = Visibility.Hidden;
+                alphaButtons[7].Visibility = Visibility.Hidden;
+                alphaButtons[8].Visibility = Visibility.Hidden;
+                alphaButtons[9].Visibility = Visibility.Hidden;
+                alphaButtons[10].Visibility = Visibility.Hidden;
+                alphaButtons[11].Visibility = Visibility.Hidden;
+                alphaButtons[12].Visibility = Visibility.Hidden;
+                alphaButtons[13].Visibility = Visibility.Hidden;
+                alphaButtons[14].Visibility = Visibility.Hidden;
+                alphaButtons[15].Visibility = Visibility.Hidden;
+                alphaButtons[16].Visibility = Visibility.Hidden;
+                alphaButtons[17].Visibility = Visibility.Hidden;
+                alphaButtons[18].Visibility = Visibility.Hidden;
+                alphaButtons[19].Visibility = Visibility.Hidden;
+                alphaButtons[20].Visibility = Visibility.Hidden;
+                alphaButtons[21].Visibility = Visibility.Hidden;
+                alphaButtons[22].Visibility = Visibility.Hidden;
+                alphaButtons[23].Visibility = Visibility.Hidden;
+                alphaButtons[24].Visibility = Visibility.Hidden;
+                alphaButtons[25].Visibility = Visibility.Hidden;
+                wordDisplayTB.Clear();
+                for (int j = 0; j < wordLetters.Count(); j++)
+                {
+                    wordDisplayTB.Text += $"{wordLetters[j]} ";
+                }
+            }
+
+            else if (amountOfTimesWrong < 5 && amountOfTimesRight == wordLetters.Count) //doesnt work
+            {
+                hangmanImageLB.Items.Add("-------YOU WIN!-------");
+                alphaButtons[0].Visibility = Visibility.Hidden;
+                alphaButtons[1].Visibility = Visibility.Hidden;
+                alphaButtons[2].Visibility = Visibility.Hidden;
+                alphaButtons[3].Visibility = Visibility.Hidden;
+                alphaButtons[4].Visibility = Visibility.Hidden;
+                alphaButtons[5].Visibility = Visibility.Hidden;
+                alphaButtons[6].Visibility = Visibility.Hidden;
+                alphaButtons[7].Visibility = Visibility.Hidden;
+                alphaButtons[8].Visibility = Visibility.Hidden;
+                alphaButtons[9].Visibility = Visibility.Hidden;
+                alphaButtons[10].Visibility = Visibility.Hidden;
+                alphaButtons[11].Visibility = Visibility.Hidden;
+                alphaButtons[12].Visibility = Visibility.Hidden;
+                alphaButtons[13].Visibility = Visibility.Hidden;
+                alphaButtons[14].Visibility = Visibility.Hidden;
+                alphaButtons[15].Visibility = Visibility.Hidden;
+                alphaButtons[16].Visibility = Visibility.Hidden;
+                alphaButtons[17].Visibility = Visibility.Hidden;
+                alphaButtons[18].Visibility = Visibility.Hidden;
+                alphaButtons[19].Visibility = Visibility.Hidden;
+                alphaButtons[20].Visibility = Visibility.Hidden;
+                alphaButtons[21].Visibility = Visibility.Hidden;
+                alphaButtons[22].Visibility = Visibility.Hidden;
+                alphaButtons[23].Visibility = Visibility.Hidden;
+                alphaButtons[24].Visibility = Visibility.Hidden;
+                alphaButtons[25].Visibility = Visibility.Hidden;
+            }
         }
 
         public void hangmanAppear()
@@ -191,7 +261,7 @@ namespace CodeKY_Hangman
                 hangmanImageLB.Items.Add("/ \\  |");
                 hangmanImageLB.Items.Add("      |");
                 hangmanImageLB.Items.Add("     ===");
-                hangmanImageLB.Items.Add("YOU LOSE!");
+                hangmanImageLB.Items.Add("-------YOU LOSE!-------");
             }
 
         }
