@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 -make the wordDictionary a list from a external source
 -add hangman image along with logic to fill in the hangman (done)
 -gameover also add a play again to start the thing over
--add a you win if you actually guess
+-add a you win if you actually guess (done)
 */
 
 namespace CodeKY_Hangman
@@ -37,7 +37,7 @@ namespace CodeKY_Hangman
         List<String> wordDictionary = new List<string> { "SOPHIE", "PYRUS", "GALLICK", "REMNANT", "LIRU", "STORM", "MORGAN", "ASH", "TASHA" };
 
         int amountOfTimesWrong = 0;
-        int amountOfTimesRight = 0; //useless atm
+        int amountOfTimesRight = 0;
         bool correctGuess = false;
 
         public MainWindow()
@@ -75,9 +75,9 @@ namespace CodeKY_Hangman
                 hangmanAppear();
         }
 
-
         public void setWord()
         {
+
             int rand1 = RandomNumber.rand.Next(0, wordDictionary.Count());
             string randomWord = wordDictionary[rand1];
 
@@ -96,9 +96,8 @@ namespace CodeKY_Hangman
         public void checkWord()
         {
 
-            
             for (int i = 0; i < wordLetters.Count(); i++)
-            {
+            { 
                 if (wordLetters[i] == alphabet[clickedButton])
                 {
                     correctGuess = true;
@@ -108,8 +107,8 @@ namespace CodeKY_Hangman
                     for (int j = 0; j < wordLetters.Count(); j++)
                     {
                         wordDisplayTB.Text += $"{solvedLetters[j]} ";
-                        amountOfTimesRight++;
                     }
+                    amountOfTimesRight++;
                 }
             }
 
@@ -117,6 +116,7 @@ namespace CodeKY_Hangman
             {
                 amountOfTimesWrong++;
             }
+            correctGuess = false;
 
         }
 
@@ -135,32 +135,37 @@ namespace CodeKY_Hangman
 
             if (amountOfTimesWrong == 5)
             {
-                alphaButtons[0].Visibility = Visibility.Hidden;
-                alphaButtons[1].Visibility = Visibility.Hidden;
-                alphaButtons[2].Visibility = Visibility.Hidden;
-                alphaButtons[3].Visibility = Visibility.Hidden;
-                alphaButtons[4].Visibility = Visibility.Hidden;
-                alphaButtons[5].Visibility = Visibility.Hidden;
-                alphaButtons[6].Visibility = Visibility.Hidden;
-                alphaButtons[7].Visibility = Visibility.Hidden;
-                alphaButtons[8].Visibility = Visibility.Hidden;
-                alphaButtons[9].Visibility = Visibility.Hidden;
-                alphaButtons[10].Visibility = Visibility.Hidden;
-                alphaButtons[11].Visibility = Visibility.Hidden;
-                alphaButtons[12].Visibility = Visibility.Hidden;
-                alphaButtons[13].Visibility = Visibility.Hidden;
-                alphaButtons[14].Visibility = Visibility.Hidden;
-                alphaButtons[15].Visibility = Visibility.Hidden;
-                alphaButtons[16].Visibility = Visibility.Hidden;
-                alphaButtons[17].Visibility = Visibility.Hidden;
-                alphaButtons[18].Visibility = Visibility.Hidden;
-                alphaButtons[19].Visibility = Visibility.Hidden;
-                alphaButtons[20].Visibility = Visibility.Hidden;
-                alphaButtons[21].Visibility = Visibility.Hidden;
-                alphaButtons[22].Visibility = Visibility.Hidden;
-                alphaButtons[23].Visibility = Visibility.Hidden;
-                alphaButtons[24].Visibility = Visibility.Hidden;
-                alphaButtons[25].Visibility = Visibility.Hidden;
+                for (int i = 0; i < alphaButtons.Length; i++)
+                {
+                    alphaButtons[i].Visibility = Visibility.Hidden;
+                }
+
+                //alphaButtons[0].Visibility = Visibility.Hidden;
+                //alphaButtons[1].Visibility = Visibility.Hidden;
+                //alphaButtons[2].Visibility = Visibility.Hidden;
+                //alphaButtons[3].Visibility = Visibility.Hidden;
+                //alphaButtons[4].Visibility = Visibility.Hidden;
+                //alphaButtons[5].Visibility = Visibility.Hidden;
+                //alphaButtons[6].Visibility = Visibility.Hidden;
+                //alphaButtons[7].Visibility = Visibility.Hidden;
+                //alphaButtons[8].Visibility = Visibility.Hidden;
+                //alphaButtons[9].Visibility = Visibility.Hidden;
+                //alphaButtons[10].Visibility = Visibility.Hidden;
+                //alphaButtons[11].Visibility = Visibility.Hidden;
+                //alphaButtons[12].Visibility = Visibility.Hidden;
+                //alphaButtons[13].Visibility = Visibility.Hidden;
+                //alphaButtons[14].Visibility = Visibility.Hidden;
+                //alphaButtons[15].Visibility = Visibility.Hidden;
+                //alphaButtons[16].Visibility = Visibility.Hidden;
+                //alphaButtons[17].Visibility = Visibility.Hidden;
+                //alphaButtons[18].Visibility = Visibility.Hidden;
+                //alphaButtons[19].Visibility = Visibility.Hidden;
+                //alphaButtons[20].Visibility = Visibility.Hidden;
+                //alphaButtons[21].Visibility = Visibility.Hidden;
+                //alphaButtons[22].Visibility = Visibility.Hidden;
+                //alphaButtons[23].Visibility = Visibility.Hidden;
+                //alphaButtons[24].Visibility = Visibility.Hidden;
+                //alphaButtons[25].Visibility = Visibility.Hidden;
                 wordDisplayTB.Clear();
                 for (int j = 0; j < wordLetters.Count(); j++)
                 {
@@ -168,35 +173,40 @@ namespace CodeKY_Hangman
                 }
             }
 
-            else if (amountOfTimesWrong < 5 && amountOfTimesRight == wordLetters.Count) //doesnt work
+            else if (amountOfTimesWrong < 5 && amountOfTimesRight == wordLetters.Count)
             {
                 hangmanImageLB.Items.Add("-------YOU WIN!-------");
-                alphaButtons[0].Visibility = Visibility.Hidden;
-                alphaButtons[1].Visibility = Visibility.Hidden;
-                alphaButtons[2].Visibility = Visibility.Hidden;
-                alphaButtons[3].Visibility = Visibility.Hidden;
-                alphaButtons[4].Visibility = Visibility.Hidden;
-                alphaButtons[5].Visibility = Visibility.Hidden;
-                alphaButtons[6].Visibility = Visibility.Hidden;
-                alphaButtons[7].Visibility = Visibility.Hidden;
-                alphaButtons[8].Visibility = Visibility.Hidden;
-                alphaButtons[9].Visibility = Visibility.Hidden;
-                alphaButtons[10].Visibility = Visibility.Hidden;
-                alphaButtons[11].Visibility = Visibility.Hidden;
-                alphaButtons[12].Visibility = Visibility.Hidden;
-                alphaButtons[13].Visibility = Visibility.Hidden;
-                alphaButtons[14].Visibility = Visibility.Hidden;
-                alphaButtons[15].Visibility = Visibility.Hidden;
-                alphaButtons[16].Visibility = Visibility.Hidden;
-                alphaButtons[17].Visibility = Visibility.Hidden;
-                alphaButtons[18].Visibility = Visibility.Hidden;
-                alphaButtons[19].Visibility = Visibility.Hidden;
-                alphaButtons[20].Visibility = Visibility.Hidden;
-                alphaButtons[21].Visibility = Visibility.Hidden;
-                alphaButtons[22].Visibility = Visibility.Hidden;
-                alphaButtons[23].Visibility = Visibility.Hidden;
-                alphaButtons[24].Visibility = Visibility.Hidden;
-                alphaButtons[25].Visibility = Visibility.Hidden;
+
+                for (int i = 0; i < alphaButtons.Length; i++)
+                {
+                    alphaButtons[i].Visibility = Visibility.Hidden;
+                }
+                //alphaButtons[0].Visibility = Visibility.Hidden;
+                //alphaButtons[1].Visibility = Visibility.Hidden;
+                //alphaButtons[2].Visibility = Visibility.Hidden;
+                //alphaButtons[3].Visibility = Visibility.Hidden;
+                //alphaButtons[4].Visibility = Visibility.Hidden;
+                //alphaButtons[5].Visibility = Visibility.Hidden;
+                //alphaButtons[6].Visibility = Visibility.Hidden;
+                //alphaButtons[7].Visibility = Visibility.Hidden;
+                //alphaButtons[8].Visibility = Visibility.Hidden;
+                //alphaButtons[9].Visibility = Visibility.Hidden;
+                //alphaButtons[10].Visibility = Visibility.Hidden;
+                //alphaButtons[11].Visibility = Visibility.Hidden;
+                //alphaButtons[12].Visibility = Visibility.Hidden;
+                //alphaButtons[13].Visibility = Visibility.Hidden;
+                //alphaButtons[14].Visibility = Visibility.Hidden;
+                //alphaButtons[15].Visibility = Visibility.Hidden;
+                //alphaButtons[16].Visibility = Visibility.Hidden;
+                //alphaButtons[17].Visibility = Visibility.Hidden;
+                //alphaButtons[18].Visibility = Visibility.Hidden;
+                //alphaButtons[19].Visibility = Visibility.Hidden;
+                //alphaButtons[20].Visibility = Visibility.Hidden;
+                //alphaButtons[21].Visibility = Visibility.Hidden;
+                //alphaButtons[22].Visibility = Visibility.Hidden;
+                //alphaButtons[23].Visibility = Visibility.Hidden;
+                //alphaButtons[24].Visibility = Visibility.Hidden;
+                //alphaButtons[25].Visibility = Visibility.Hidden;
             }
         }
 
