@@ -15,8 +15,8 @@
         <Button x:Name="CKey" Content="C" HorizontalAlignment="Left" Margin="154,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="CKey_Click"/>
         <Button x:Name="XKey" Content="X" HorizontalAlignment="Left" Margin="109,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="XKey_Click"/>
         <Button x:Name="ZKey" Content="Z" HorizontalAlignment="Left" Margin="64,387,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="ZKey_Click"/>
-        <Button x:Name="LKey" Content="L" HorizontalAlignment="Left" Margin="399,343,0,52" Width="40" Click="LKey_Click"/>
-        <Button x:Name="KKey" Content="K" HorizontalAlignment="Left" Margin="354,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="KKey_Click"/>
+        <Button x:Name="LKey" Content="L" HorizontalAlignment="Left" Margin="400,343,0,0" VerticalAlignment="Top" Height="39" Width="40" Click="LKey_Click"/>
+        <Button x:Name="KKey" Content="K" HorizontalAlignment="Left" Margin="355,343,0,0" VerticalAlignment="Top" Height="39" Width="39" Click="KKey_Click"/>
         <Button x:Name="PKey" Content="P" HorizontalAlignment="Left" Margin="419,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="PKey_Click"/>
         <Button x:Name="JKey" Content="J" HorizontalAlignment="Left" Margin="309,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="JKey_Click"/>
         <Button x:Name="HKey" Content="H" HorizontalAlignment="Left" Margin="264,343,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="HKey_Click"/>
@@ -34,9 +34,11 @@
         <Button x:Name="EKey" Content="E" HorizontalAlignment="Left" Margin="104,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="EKey_Click"/>
         <Button x:Name="WKey" Content="W" HorizontalAlignment="Left" Margin="59,299,0,0" VerticalAlignment="Top" Height="39" Width="39.6233333333333" Click="WKey_Click"/>
         <TextBox x:Name="wordDisplayTB" HorizontalAlignment="Left" Margin="109,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="41" TextAlignment="Center" IsReadOnly="True"/>
-        <ListBox x:Name="usedLettersLB" Margin="14,59,701,140"/>
-        <ListBox x:Name="hangmanImageLB" Margin="109,80,496,186" HorizontalContentAlignment="Right" Width="195" Height="168.04" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <ListBox x:Name="usedLettersLB" Margin="14,59,0,0" HorizontalAlignment="Left" Width="85" VerticalAlignment="Top" Height="235"/>
+        <ListBox x:Name="hangmanImageLB" Margin="109,80,0,0" HorizontalContentAlignment="Right" Width="195" Height="168" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox HorizontalAlignment="Left" Margin="109,59,0,0" Text="Code Kentucky Hangman" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Height="21" TextAlignment="Center" IsReadOnly="True"/>
+        <Button x:Name="newGame" Content="New Game" HorizontalAlignment="Left" Margin="329,209,0,0" VerticalAlignment="Top" Height="39" Width="100" Click="SKey_Click"/>
+
 
     </Grid>
 </Window>
