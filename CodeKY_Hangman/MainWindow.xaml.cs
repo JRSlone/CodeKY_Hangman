@@ -27,7 +27,7 @@ namespace CodeKY_Hangman
         List<char> guessedLetters = new List<char>();
         List<char> wordLetters = new List<char>();
         List<char> solvedLetters = new List<char>();
-        List<String> wordDictionary = new List<string> { "APPLE", "SNOW", "MARSHMELLOW", "SHARP", "FOX", "DISCORD", "DEVELOPMENT", "OVERFLOW", "AURORA" };
+        List<String> wordDictionary = new List<string> { "APPLE", "SNOW", "MARSHMALLOW", "SHARP", "FOX", "DISCORD", "DEVELOPMENT", "OVERFLOW", "AURORA" };
 
         int amountOfTimesWrong = 0;
         int amountOfTimesRight = 0;
