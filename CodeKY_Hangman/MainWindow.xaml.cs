@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ using System.Windows.Shapes;
 -THINGS TO DO
 -make the wordDictionary a list from a external source
 -add hangman image along with logic to fill in the hangman (done)
--gameover also add a play again to start the thing over
+-gameover also add a play again to start the thing over (done)
 -add a you win if you actually guess (done)
 */
 
@@ -77,20 +78,19 @@ namespace CodeKY_Hangman
 
         public void setWord()
         {
+                int rand1 = RandomNumber.rand.Next(0, wordDictionary.Count());
+                string randomWord = wordDictionary[rand1];
 
-            int rand1 = RandomNumber.rand.Next(0, wordDictionary.Count());
-            string randomWord = wordDictionary[rand1];
+                wordLetters.AddRange(randomWord);
 
-            wordLetters.AddRange(randomWord);
-
-            for (int i = 0; i < wordLetters.Count(); i++)
-            {
-                if (i < wordLetters.Count())
+                for (int i = 0; i < wordLetters.Count(); i++)
                 {
-                    solvedLetters.AddRange("_");
-                    wordDisplayTB.Text += $"{solvedLetters[i]} ";
+                    if (i < wordLetters.Count())
+                    {
+                        solvedLetters.AddRange("_");
+                        wordDisplayTB.Text += $"{solvedLetters[i]} ";
+                    }
                 }
-            }
         }
 
         public void checkWord()
@@ -140,32 +140,6 @@ namespace CodeKY_Hangman
                     alphaButtons[i].Visibility = Visibility.Hidden;
                 }
 
-                //alphaButtons[0].Visibility = Visibility.Hidden;
-                //alphaButtons[1].Visibility = Visibility.Hidden;
-                //alphaButtons[2].Visibility = Visibility.Hidden;
-                //alphaButtons[3].Visibility = Visibility.Hidden;
-                //alphaButtons[4].Visibility = Visibility.Hidden;
-                //alphaButtons[5].Visibility = Visibility.Hidden;
-                //alphaButtons[6].Visibility = Visibility.Hidden;
-                //alphaButtons[7].Visibility = Visibility.Hidden;
-                //alphaButtons[8].Visibility = Visibility.Hidden;
-                //alphaButtons[9].Visibility = Visibility.Hidden;
-                //alphaButtons[10].Visibility = Visibility.Hidden;
-                //alphaButtons[11].Visibility = Visibility.Hidden;
-                //alphaButtons[12].Visibility = Visibility.Hidden;
-                //alphaButtons[13].Visibility = Visibility.Hidden;
-                //alphaButtons[14].Visibility = Visibility.Hidden;
-                //alphaButtons[15].Visibility = Visibility.Hidden;
-                //alphaButtons[16].Visibility = Visibility.Hidden;
-                //alphaButtons[17].Visibility = Visibility.Hidden;
-                //alphaButtons[18].Visibility = Visibility.Hidden;
-                //alphaButtons[19].Visibility = Visibility.Hidden;
-                //alphaButtons[20].Visibility = Visibility.Hidden;
-                //alphaButtons[21].Visibility = Visibility.Hidden;
-                //alphaButtons[22].Visibility = Visibility.Hidden;
-                //alphaButtons[23].Visibility = Visibility.Hidden;
-                //alphaButtons[24].Visibility = Visibility.Hidden;
-                //alphaButtons[25].Visibility = Visibility.Hidden;
                 wordDisplayTB.Clear();
                 for (int j = 0; j < wordLetters.Count(); j++)
                 {
@@ -181,32 +155,6 @@ namespace CodeKY_Hangman
                 {
                     alphaButtons[i].Visibility = Visibility.Hidden;
                 }
-                //alphaButtons[0].Visibility = Visibility.Hidden;
-                //alphaButtons[1].Visibility = Visibility.Hidden;
-                //alphaButtons[2].Visibility = Visibility.Hidden;
-                //alphaButtons[3].Visibility = Visibility.Hidden;
-                //alphaButtons[4].Visibility = Visibility.Hidden;
-                //alphaButtons[5].Visibility = Visibility.Hidden;
-                //alphaButtons[6].Visibility = Visibility.Hidden;
-                //alphaButtons[7].Visibility = Visibility.Hidden;
-                //alphaButtons[8].Visibility = Visibility.Hidden;
-                //alphaButtons[9].Visibility = Visibility.Hidden;
-                //alphaButtons[10].Visibility = Visibility.Hidden;
-                //alphaButtons[11].Visibility = Visibility.Hidden;
-                //alphaButtons[12].Visibility = Visibility.Hidden;
-                //alphaButtons[13].Visibility = Visibility.Hidden;
-                //alphaButtons[14].Visibility = Visibility.Hidden;
-                //alphaButtons[15].Visibility = Visibility.Hidden;
-                //alphaButtons[16].Visibility = Visibility.Hidden;
-                //alphaButtons[17].Visibility = Visibility.Hidden;
-                //alphaButtons[18].Visibility = Visibility.Hidden;
-                //alphaButtons[19].Visibility = Visibility.Hidden;
-                //alphaButtons[20].Visibility = Visibility.Hidden;
-                //alphaButtons[21].Visibility = Visibility.Hidden;
-                //alphaButtons[22].Visibility = Visibility.Hidden;
-                //alphaButtons[23].Visibility = Visibility.Hidden;
-                //alphaButtons[24].Visibility = Visibility.Hidden;
-                //alphaButtons[25].Visibility = Visibility.Hidden;
             }
         }
 
@@ -430,6 +378,19 @@ namespace CodeKY_Hangman
         {
             clickedButton = 25;
             buttonClick();
+        }
+
+        private void newGame_Click(object sender, RoutedEventArgs e)
+        {
+            var currentExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
+            Process.Start(currentExecutablePath);
+            Application.Current.Shutdown();
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+            Process.Start(Environment.GetCommandLineArgs()[0]);
         }
     }
 }

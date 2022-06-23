@@ -37,7 +37,8 @@
         <ListBox x:Name="usedLettersLB" Margin="14,59,0,0" HorizontalAlignment="Left" Width="85" VerticalAlignment="Top" Height="235"/>
         <ListBox x:Name="hangmanImageLB" Margin="109,80,0,0" HorizontalContentAlignment="Right" Width="195" Height="168" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox HorizontalAlignment="Left" Margin="109,59,0,0" Text="Code Kentucky Hangman" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Height="21" TextAlignment="Center" IsReadOnly="True"/>
-        <Button x:Name="newGame" Content="New Game" HorizontalAlignment="Left" Margin="329,209,0,0" VerticalAlignment="Top" Height="39" Width="100" Click="SKey_Click"/>
+        <Button x:Name="newGame" Content="New Game" HorizontalAlignment="Left" Margin="329,164,0,0" VerticalAlignment="Top" Height="39" Width="100" Click="newGame_Click"/>
+        <Button x:Name="exitButton" Content="Exit" HorizontalAlignment="Left" Margin="329,209,0,0" VerticalAlignment="Top" Height="39" Width="100" Click="exitButton_Click"/>
 
 
     </Grid>
