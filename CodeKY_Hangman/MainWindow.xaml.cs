@@ -38,6 +38,9 @@ namespace CodeKY_Hangman
         {
                 InitializeComponent();
 
+
+
+
                 alphaButtons[0] = AKey;
                 alphaButtons[1] = BKey;
                 alphaButtons[2] = CKey;
@@ -289,7 +292,9 @@ namespace CodeKY_Hangman
 
         private void LKey_Click(object sender, RoutedEventArgs e)
         {
-            clickedButton = 11;
+            Button btn = (Button)sender;
+            btn.Content = 11;
+            clickedButton = Convert.ToInt32(btn.Content);
             buttonClick();
         }
 
@@ -380,6 +385,7 @@ namespace CodeKY_Hangman
         private void newGame_Click(object sender, RoutedEventArgs e)
         {
             wordDisplayTB.Clear();
+            guessedLetters.Clear();
             setWord();
             hangmanAppear();
             usedLettersLB.Items.Clear();
