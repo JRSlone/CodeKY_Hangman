@@ -11,7 +11,8 @@ using System.Windows.Controls;
 -add hangman image along with logic to fill in the hangman (done)
 -gameover also add a play again to start the thing over (done)
 -add a you win if you actually guess (done)
--make a more fluid way to restart program.
+-make a more fluid way to restart program. (done)
+-------METHODS FIRST LETTER ALWAYS CAP, VARIABLES FIRST LETTER ALWAYS lower case-------
 */
 
 namespace CodeKY_Hangman
@@ -70,19 +71,23 @@ namespace CodeKY_Hangman
 
         public void setWord()
         {
-                int rand1 = RandomNumber.rand.Next(0, wordDictionary.Count());
-                string randomWord = wordDictionary[rand1];
+            int rand1 = RandomNumber.rand.Next(0, wordDictionary.Count());
+            string randomWord = wordDictionary[rand1];
 
-                wordLetters.AddRange(randomWord);
+            wordLetters.Clear();
+            solvedLetters.Clear();
+            amountOfTimesWrong = 0;
+            amountOfTimesRight = 0;
+            wordLetters.AddRange(randomWord);
 
-                for (int i = 0; i < wordLetters.Count(); i++)
+            for (int i = 0; i < wordLetters.Count(); i++)
+            {
+                if (i < wordLetters.Count())
                 {
-                    if (i < wordLetters.Count())
-                    {
-                        solvedLetters.AddRange("_");
-                        wordDisplayTB.Text += $"{solvedLetters[i]} ";
-                    }
+                    solvedLetters.AddRange("_");
+                    wordDisplayTB.Text += $"{solvedLetters[i]} ";
                 }
+            }
         }
 
         public void checkWord()
@@ -374,9 +379,14 @@ namespace CodeKY_Hangman
 
         private void newGame_Click(object sender, RoutedEventArgs e)
         {
-            var currentExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
-            Process.Start(currentExecutablePath);
-            Application.Current.Shutdown();
+            wordDisplayTB.Clear();
+            setWord();
+            hangmanAppear();
+            usedLettersLB.Items.Clear();
+            for (int i = 0; i < alphaButtons.Length; i++)
+            {
+                alphaButtons[i].Visibility = Visibility.Visible;
+            }
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
