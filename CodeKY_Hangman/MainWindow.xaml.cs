@@ -11,6 +11,7 @@ using System.Windows.Controls;
 
 namespace CodeKY_Hangman
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -22,10 +23,11 @@ namespace CodeKY_Hangman
         List<char> guessedLetters = new List<char>();
         List<char> wordLetters = new List<char>();
         List<char> solvedLetters = new List<char>();
-        List<String> wordDictionary = new List<string> { "APPLE", "SNOW", "MARSHMALLOW", "SHARP", "FOX", "DISCORD", "DEVELOPMENT", "OVERFLOW", "AURORA" };
+        public List<String> wordDictionary = new List<string> { "APPLE", "SNOW", "MARSHMALLOW", "SHARP", "FOX", "DISCORD", "DEVELOPMENT", "OVERFLOW", "AURORA" };
 
-        int amountOfTimesWrong = 0;
-        int amountOfTimesRight = 0;
+        static int returnGuesses = 0;
+        static int amountOfTimesWrong = 0;
+        static int amountOfTimesRight = 0;
         bool correctGuess = false;
 
         public MainWindow()
@@ -140,6 +142,9 @@ namespace CodeKY_Hangman
 
             else if (amountOfTimesWrong < 5 && amountOfTimesRight == wordLetters.Count)
             {
+                returnGuesses = CalculateGuesses();
+                MessageBox.Show("Total amount of guesses: " + returnGuesses, "GOOD JOB");
+
                 hangmanImageLB.Items.Add("-------YOU WIN!-------");
 
                 for (int i = 0; i < alphaButtons.Length; i++)
@@ -147,6 +152,11 @@ namespace CodeKY_Hangman
                     alphaButtons[i].Visibility = Visibility.Hidden;
                 }
             }
+        }
+
+        public static int CalculateGuesses()
+        {
+            return amountOfTimesRight + amountOfTimesWrong;
         }
 
         public void hangmanAppear()
@@ -211,6 +221,9 @@ namespace CodeKY_Hangman
                 hangmanImageLB.Items.Add("      |");
                 hangmanImageLB.Items.Add("     ===");
                 hangmanImageLB.Items.Add("-------YOU LOSE!-------");
+
+                returnGuesses = CalculateGuesses();
+                MessageBox.Show("Total amount of guesses: " + returnGuesses, "Better luck next time!");
             }
 
         }
