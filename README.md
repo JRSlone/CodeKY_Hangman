@@ -17,4 +17,4 @@ This project opens up a game of Hangman to play with predetermined words from a 
 *  "public void setWord()", this method will take the the dictionary words and produce blank spaces in my wordDisplayTB that are later filled in by pressing the correct letter.
 
 3. Visualize data in a graph, chart, or other visual representation of data.
-* The application will display the word after it is guessed incorrectly and also displays a Hangman text image that changes depending on the amount of incorrect guesses given.
+* The UI will display the word after it is guessed incorrectly and also displays a Hangman text image that changes depending on the amount of incorrect guesses given.
