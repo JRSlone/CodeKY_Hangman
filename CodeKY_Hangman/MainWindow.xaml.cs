@@ -6,12 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 
 /*
--THINGS TO DO
--make the wordDictionary a list from a external source
--add hangman image along with logic to fill in the hangman (done)
--gameover also add a play again to start the thing over (done)
--add a you win if you actually guess (done)
--make a more fluid way to restart program. (done)
 -------METHODS FIRST LETTER ALWAYS CAP, VARIABLES FIRST LETTER ALWAYS lower case-------
 */
 
@@ -37,9 +31,6 @@ namespace CodeKY_Hangman
         public MainWindow()
         {
                 InitializeComponent();
-
-
-
 
                 alphaButtons[0] = AKey;
                 alphaButtons[1] = BKey;
