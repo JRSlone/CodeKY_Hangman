@@ -7,7 +7,7 @@ This project opens up a game of Hangman to play with predetermined words from a 
 * "public static class RandomNumber" that is located in my RandomNumber.cs
 
 2. Create and call at least 3 functions or methods, at least one of which must return a value that is used in your application.
-* "public void setWord()" Line 72, "public void checkWord()" Line 93, "public void buttonClick()" Line 120.
+* "public void buttonClick()" Line 116, "public static int CalculateGuesses()" Line 157 and returns a value for total guesses for message box in Line 146 and Line 226, "public void hangmanAppear()" Line 162.
 
 ---Feature List---
 1. Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program.
