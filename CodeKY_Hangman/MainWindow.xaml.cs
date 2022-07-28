@@ -23,7 +23,7 @@ namespace CodeKY_Hangman
         List<char> guessedLetters = new List<char>();
         List<char> wordLetters = new List<char>();
         List<char> solvedLetters = new List<char>();
-        public List<String> wordDictionary = new List<string> { "APPLE", "SNOW", "MARSHMALLOW", "SHARP", "FOX", "DISCORD", "DEVELOPMENT", "OVERFLOW", "AURORA" };
+        Words word1 = new Words(new List<string> { "APPLE", "SNOW", "MARSHMALLOW", "SHARP", "FOX", "DISCORD", "DEVELOPMENT", "OVERFLOW", "AURORA" });
 
         static int returnGuesses = 0;
         static int amountOfTimesWrong = 0;
@@ -67,8 +67,7 @@ namespace CodeKY_Hangman
 
         public void setWord()
         {
-            int rand1 = RandomNumber.rand.Next(0, wordDictionary.Count());
-            string randomWord = wordDictionary[rand1];
+            string randomWord = word1.GetWord();
 
             wordLetters.Clear();
             solvedLetters.Clear();
